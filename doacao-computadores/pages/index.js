@@ -1,15 +1,21 @@
 import axios from 'axios'
 
 export default function Home() {
-  document.getElementsByClassName('titulo').innerHTML = 'Doação de computadores usados'
   const alive = axios.get('https://doar-computador-api.herokuapp.com/')
     
   if (alive===true){
       return (
         <div>
-          <main>
+          <header>
             <h1 class='titulo'></h1>
             <p>API Online</p>
+          </header>
+          <main>
+            <form method='post'>
+              Nome: <input type='text' name='nome'></input>
+              E-mail: <input type='email' name='email'></input>
+              Telefone: <input type='number' name='telefone'></input>
+            </form>
           </main>
         </div>
       )
@@ -17,10 +23,16 @@ export default function Home() {
   else{
       return (
         <div>
-          <main>
+          <header>
             <h1 class='titulo'></h1>
-            <h1>Doação de computadores usados</h1>
             <p>API Offline</p>
+          </header>
+          <main>
+            <form method='post'>
+              Nome: <input type='text' name='nome'></input>
+              E-mail: <input type='email' name='email'></input>
+              Telefone: <input type='number' name='telefone'></input>
+            </form>
           </main>
         </div>
       )
